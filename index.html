@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Touseeq Hussain – Professional Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+    <!-- ===== SKIP LINK ===== -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="#home" class="brand-link">
+                    <span class="brand-icon">TH</span>
+                </a>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                    <span>Dark</span>
+                </button>
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main id="main-content">
+
+        <!-- ===== HOME SECTION ===== -->
+        <section id="home" class="section hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <span class="hero-badge"> Welcome to my portfolio</span>
+                        <h1 id="profileName" class="hero-title">Loading...</h1>
+                        <p id="profileTitle" class="hero-subtitle">Loading...</p>
+                        <p id="profileBio" class="hero-description">Loading...</p>
+                        <div class="hero-actions">
+                            <a href="#projects" class="btn btn-primary btn-lg">
+                                <i class="fas fa-code"></i> View Projects
+                            </a>
+                            <a href="#contact" class="btn btn-outline btn-lg">
+                                <i class="fas fa-envelope"></i> Contact Me
+                            </a>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <div class="profile-image-wrapper">
+                            <img src="Profile photo.jpeg" 
+                                 alt="Touseeq Hussain" 
+                                 class="profile-image" />
+                            <span class="status-dot"></span>
+                        </div>
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <span class="stat-number" id="projectCount">0</span>
+                                <span class="stat-label">Projects</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">2</span>
+                                <span class="stat-label">Experience</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">100%</span>
+                                <span class="stat-label">Satisfaction</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== ABOUT SECTION ===== -->
+        <section id="about" class="section about-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">About Me</span>
+                    <h2 class="section-title">Know Me Better</h2>
+                    <p class="section-subtitle">Get to know the person behind the code</p>
+                </div>
+                <div class="about-content" id="aboutContent">
+                    <!-- Rendered by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SKILLS SECTION ===== -->
+        <section id="skills" class="section skills-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">My Skills</span>
+                    <h2 class="section-title">Technical Expertise</h2>
+                    <p class="section-subtitle">Technologies and tools I work with</p>
+                </div>
+                <div id="skillsGrid" class="skills-grid">
+                    <!-- Rendered by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PROJECTS SECTION ===== -->
+        <section id="projects" class="section projects-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Portfolio</span>
+                    <h2 class="section-title">Featured Projects</h2>
+                    <p class="section-subtitle">Each project is a testament to my skills and creativity</p>
+                </div>
+
+                <!-- Search & Filter Controls -->
+                <div class="project-controls">
+                    <div class="search-wrapper">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" id="searchInput" placeholder="Search projects by name, tech, or category..." class="search-input" />
+                    </div>
+                    <div class="filter-wrapper" id="filterButtons">
+                        <!-- Rendered by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Loading State -->
+                <div id="loadingContainer">
+                    <div class="skeleton-grid" id="skeletonGrid">
+                        <!-- Skeleton loaders rendered by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Projects Grid -->
+                <div id="projectsGrid" class="projects-grid"></div>
+
+                <!-- Empty State -->
+                <div id="emptyState" class="empty-state" style="display:none;">
+                    <i class="fas fa-search empty-icon"></i>
+                    <h3>No projects found</h3>
+                    <p>Try adjusting your search or filter criteria</p>
+                    <button class="btn btn-primary" onclick="resetFilters()">Clear Filters</button>
+                </div>
+
+                <!-- Error State -->
+                <div id="errorState" class="error-state" style="display:none;">
+                    <i class="fas fa-exclamation-circle error-icon"></i>
+                    <h3>Failed to load projects</h3>
+                    <p id="errorMessage">Please try again later</p>
+                    <button class="btn btn-primary" onclick="loadProjects()">Retry</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CONTACT SECTION ===== -->
+        <section id="contact" class="section contact-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Get In Touch</span>
+                    <h2 class="section-title">Let's Work Together</h2>
+                    <p class="section-subtitle">Have a project in mind? Let's discuss it.</p>
+                </div>
+                <div class="contact-wrapper">
+                    <div class="contact-info-card">
+                        <h3>Contact Information</h3>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <span class="contact-label">Email</span>
+                                    <span id="contactEmail" class="contact-value">Loading...</span>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fab fa-github"></i>
+                                <div>
+                                    <span class="contact-label">GitHub</span>
+                                    <span id="contactGithub" class="contact-value">Loading...</span>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fab fa-linkedin-in"></i>
+                                <div>
+                                    <span class="contact-label">LinkedIn</span>
+                                    <span id="contactLinkedin" class="contact-value">Loading...</span>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <span class="contact-label">Location</span>
+                                    <span class="contact-value">Mardan, Pakistan</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-social">
+                            <a href="#" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="contactName">Full Name <span class="required">*</span></label>
+                            <input type="text" id="contactName" placeholder="Enter your full name" required />
+                            <div class="error-message" id="nameError">Please enter your full name</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactEmailInput">Email Address <span class="required">*</span></label>
+                            <input type="email" id="contactEmailInput" placeholder="you@example.com" required />
+                            <div class="error-message" id="emailError">Please enter a valid email address</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactMessage">Your Message <span class="required">*</span></label>
+                            <textarea id="contactMessage" rows="4" placeholder="Tell me about your project..." required></textarea>
+                            <div class="error-message" id="messageError">Message must be at least 10 characters</div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
+                            <span id="btnText"><i class="fas fa-paper-plane"></i> Send Message</span>
+                            <span id="btnLoading" style="display:none;"><i class="fas fa-spinner fa-spin"></i> Sending...</span>
+                        </button>
+                        <div id="formSuccess" class="form-success" style="display:none;">
+                            <i class="fas fa-check-circle"></i>
+                            <span id="successMessage">Message sent successfully!</span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>TH</h3>
+                    <p>Frontend Developer</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-social">
+                    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> Touseeq Hussain. All rights reserved.</p>
+                <p class="footer-tagline">Built with <i class="fas fa-heart" style="color: #FF6B6B;"></i> using Vanilla JS</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== PROJECT MODAL ===== -->
+    <div id="projectModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose" aria-label="Close modal">
+                <i class="fas fa-times"></i>  <!-- ✅ This shows × (cross sign) -->
+            </button>
+            <div class="modal-body">
+                <span id="modalCategory" class="modal-category">Category</span>
+                <h2 id="modalTitle">Project Title</h2>
+                <p id="modalDescription" class="modal-description">Description</p>
+                <div class="modal-tech">
+                    <h4>Technologies Used</h4>
+                    <ul id="modalTechList" class="modal-tech-list"></ul>
+                </div>
+                <div class="modal-actions">
+                    <a href="#" id="modalDemo" class="btn btn-primary" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Live Demo
+                    </a>
+                    <a href="#" id="modalGithub" class="btn btn-secondary" target="_blank">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script src="data.js"></script>
+    <script src="api.js"></script>
+    <script src="components.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
